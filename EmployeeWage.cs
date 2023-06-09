@@ -11,22 +11,28 @@ namespace EmployeeWageProblem
         public static void EmpComputation()
         {
             int Is_Full_Time = 1;
+            int Is_Part_Time = 2;
             int Wage_Per_Hour = 20;
-            int FullDayHour = 8;
+            int empHour;
+            int DailyEmpWage;
             Random R = new Random();
-            int empCheck = R.Next(2);
+            int empCheck = R.Next(3);
             if (empCheck == Is_Full_Time)
             {
                 Console.WriteLine("Employee is present.");
-                FullDayHour = 8;
-
+                empHour = 8;
+            }
+            else if (empCheck == Is_Part_Time)
+            {
+                Console.WriteLine("Employee present PartTime.");
+                empHour = 4;
             }
             else
             {
                 Console.WriteLine("Employee is absent.");
-                FullDayHour = 0;
+                empHour = 0;
             }
-            int DailyEmpWage = Wage_Per_Hour * FullDayHour;
+            DailyEmpWage = Wage_Per_Hour * empHour;
             Console.WriteLine("Daily employee wage is :- " + DailyEmpWage);
         }
     }
