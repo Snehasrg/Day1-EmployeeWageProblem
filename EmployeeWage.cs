@@ -17,23 +17,32 @@ namespace EmployeeWageProblem
             int DailyEmpWage;
             Random R = new Random();
             int empCheck = R.Next(3);
-            if (empCheck == Is_Full_Time)
+
+            switch (empCheck)
             {
-                Console.WriteLine("Employee is present.");
-                empHour = 8;
+                case 1:
+                    {
+                        Console.WriteLine("Employee is present.");
+                        empHour = 8;
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Employee present PartTime.");
+                        empHour = 4;
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Employee is absent.");
+                        empHour = 0;
+                        break;
+                    }
             }
-            else if (empCheck == Is_Part_Time)
-            {
-                Console.WriteLine("Employee present PartTime.");
-                empHour = 4;
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent.");
-                empHour = 0;
-            }
+
             DailyEmpWage = Wage_Per_Hour * empHour;
             Console.WriteLine("Daily employee wage is :- " + DailyEmpWage);
+
         }
     }
 }
