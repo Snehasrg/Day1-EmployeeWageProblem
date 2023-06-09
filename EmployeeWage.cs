@@ -11,25 +11,25 @@ namespace EmployeeWageProblem
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
-        private CompanyEmpWage[] CompanywageArr;
+        private List<CompanyEmpWage> CompanywageArr;
         private int noOfCompany = 0;
         public EmployeeWage()
         {
-            this.CompanywageArr = new CompanyEmpWage[5];
+            CompanywageArr = new List<CompanyEmpWage>();
         }
         public void addCompanies(string company, int Wage_Per_Hour, int Max_Days_IN_Month, int Max_HrsInMonth)
         {
-            CompanywageArr[noOfCompany] = new CompanyEmpWage(company, Wage_Per_Hour, Max_Days_IN_Month, Max_HrsInMonth);
-            noOfCompany++;
+            CompanyEmpWage Emp = new CompanyEmpWage(company, Wage_Per_Hour, Max_Days_IN_Month, Max_HrsInMonth);
+
+            this.CompanywageArr.Add(Emp);
         }
 
         public void EmpComputation()
         {
-            for (int i = 0; i < noOfCompany; i++)
+            foreach (CompanyEmpWage Emp in this.CompanywageArr)
             {
-                CompanywageArr[i].setEmpWage(EmpComputation(CompanywageArr[i]));
-                Console.WriteLine(CompanywageArr[i].Return());
-
+                Emp.setEmpWage(this.EmpComputation(Emp));
+                Console.WriteLine(Emp.Return());
             }
         }
 
@@ -41,7 +41,7 @@ namespace EmployeeWageProblem
             int totalDays = 0;
             int totalSallery = 0;
             Console.WriteLine();
-            Console.WriteLine("-------- " + emp.company + "-----------");
+            Console.WriteLine("---------- " + emp.company + "--------");
 
             while (totalHours <= emp.Max_HrsInMonth && totalDays <= emp.Max_Days_IN_Month)
             {
@@ -79,5 +79,6 @@ namespace EmployeeWageProblem
             }
             return emp.sallery;
         }
+
     }
 }
