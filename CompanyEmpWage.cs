@@ -13,6 +13,8 @@ namespace EmployeeWageProblem
         public int Max_Days_IN_Month;
         public int Max_HrsInMonth;
         public int sallery;
+
+
         public CompanyEmpWage(string company, int Wage_Per_Hour, int Max_Days_IN_Month, int Max_HrsInMonth)
         {
             this.company = company;

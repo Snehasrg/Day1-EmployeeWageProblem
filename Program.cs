@@ -12,6 +12,8 @@
             obj.addCompanies("Microsoft", 45, 23, 150);
 
             obj.EmpComputation();
+            Console.WriteLine("Total wage for Microsoft company : " + obj.getTotalwage("Microsoft"));
+
         }
     }
 }
