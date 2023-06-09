@@ -4,7 +4,7 @@
     {
         public static void Main(String[] args)
         {
-            EmployeeAttendence.CheckAttendence();
+            EmployeeWage.EmpComputation();
         }
     }
 }
