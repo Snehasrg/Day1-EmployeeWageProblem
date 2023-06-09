@@ -8,15 +8,15 @@ namespace EmployeeWageProblem
 {
     public class EmployeeWage
     {
-        public static void EmpComputation()
+         const int Is_Full_Time = 1;
+        const int Is_Part_Time = 2;
+
+        public void Employee(string company, int Emp_Rate_Per_Hr, int Max_Days_In_Month, int Max_Hrs_In_Month)
         {
-            const int Is_Full_Time = 1;
-            const int Is_Part_Time = 2;
-            const int Emp_Rate_Per_Hr = 20;
-            const int Max_Days_In_Month = 20;
-            const int Max_Hrs_In_Month = 100;
 
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+
+            Console.WriteLine(company);
 
             while (totalEmpHrs <= Max_Hrs_In_Month && totalWorkingDays < Max_Days_In_Month)
             {
@@ -41,11 +41,11 @@ namespace EmployeeWageProblem
                 }
 
                 totalEmpHrs = totalEmpHrs + empHrs;
-                Console.WriteLine("Day : " + totalWorkingDays + "  Total employee hours are : " + totalEmpHrs);
+                Console.WriteLine("Day : " + totalWorkingDays + "  Total employee hours are :- " + totalEmpHrs);
 
             }
             int totalEmpWage = totalEmpHrs * Emp_Rate_Per_Hr;
-            Console.WriteLine("Total employee Wage is : " + totalEmpWage);
+            Console.WriteLine("Total employee Wage is :- " + totalEmpWage);
         }
     }
 }
